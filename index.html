@@ -27,7 +27,6 @@
         (function() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
-                    alert(JSON.stringify(position));
                     // 百度地图API功能
                     var map = new BMap.Map("map");
                     map.centerAndZoom(new BMap.Point(116.331398, 39.897445), 11);
