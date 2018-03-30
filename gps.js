@@ -6,7 +6,7 @@ var gps = {
     init: function() {
         var _self = this;
         if (navigator.geolocation) {
-            navigator.geolocation.watchPosition(_self.location, _self.err);
+            navigator.geolocation.watchPosition(_self.location, _self.err, {});
         } else {
             _self.err_msg = "当前浏览器不支持Geolocation";
             alert(_self.err_msg);
