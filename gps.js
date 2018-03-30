@@ -8,7 +8,8 @@ var gps = {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(_self.location, _self.err);
         } else {
-            _self.err_msg = "Geolocation is not supported by this browser.";
+            _self.err_msg = "当前浏览器不支持Geolocation";
+            alert(_self.err_msg);
         }
     },
     location: function(position) {
@@ -34,17 +35,18 @@ var gps = {
         var _self = this;
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                _self.err_msg = "User denied the request for Geolocation."
+                _self.err_msg = "用户拒绝请求地理位置"
                 break;
             case error.POSITION_UNAVAILABLE:
-                _self.err_msg = "Location information is unavailable."
+                _self.err_msg = "位置信息不可用"
                 break;
             case error.TIMEOUT:
-                _self.err_msg = "The request to get user location timed out."
+                _self.err_msg = "用户位置的请求超时"
                 break;
             case error.UNKNOWN_ERROR:
-                _self.err_msg = "An unknown error occurred."
+                _self.err_msg = "未知的错误发生"
                 break;
         }
+        alert(_self.err_msg);
     }
 }
