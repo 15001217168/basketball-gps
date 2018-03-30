@@ -25,7 +25,9 @@
     </div>
     <script>
         (function() {
-            gps.init();
+            window.load = function() {
+                gps.init();
+            }
         })();
     </script>
 </body>
