@@ -25,7 +25,28 @@
     </div>
     <script>
         (function() {
-            gps.init();
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(function(position) {
+                    alert(JSON.stringify(position));
+                    // 百度地图API功能
+                    var map = new BMap.Map("map");
+                    map.centerAndZoom(new BMap.Point(116.331398, 39.897445), 11);
+                    map.enableScrollWheelZoom(true);
+
+                    // 用经纬度设置地图中心点
+                    map.clearOverlays();
+                    var new_point = new BMap.Point(position.coords.longitude, position.coords.latitude);
+                    var marker = new BMap.Marker(new_point); // 创建标注
+                    map.addOverlay(marker); // 将标注添加到地图中
+                    map.panTo(new_point);
+                }, function(error) {
+                    alert(JSON.stringify(error));
+                }, {});
+            } else {
+                alert('当前浏览器不支持Geolocation');
+
+            }
+
         })();
     </script>
 </body>
