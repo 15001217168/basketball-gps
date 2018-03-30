@@ -13,7 +13,7 @@ var gps = {
         }
     },
     location: function(position) {
-        alert(JSON.stringify(position.coords));
+        alert(JSON.stringify(position));
         this.pos.latitude = position.coords.latitude;
         this.pos.longitude = position.coords.longitude;
         this.init_map();
