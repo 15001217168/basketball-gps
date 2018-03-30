@@ -48,7 +48,6 @@ var gps = {
                 _self.err_msg = "未知的错误发生";
                 break;
         }
-        _self.init_map();
         alert(_self.err_msg);
     }
 }
